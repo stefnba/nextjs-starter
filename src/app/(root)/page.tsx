@@ -21,7 +21,11 @@ export default async function Home({ searchParams }: HomeProps) {
 
     return (
         <>
-            <div className="text-xl">Page</div>
+            <div className="text-xl">Examples</div>
+
+            <p>
+                <Link href="/examples/form">Form</Link>
+            </p>
         </>
     );
 }

@@ -58,7 +58,7 @@ export function FormInput<TFieldValues extends FieldValues>({
                             placeholder={placeholder}
                             {...field}
                             disabled={form.formState.isSubmitting}
-                            onBlur={() => form.trigger(name)}
+                            // onBlur={() => form.trigger(name)}
                         />
                     </FormControl>
                     {description && (

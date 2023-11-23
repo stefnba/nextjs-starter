@@ -12,14 +12,14 @@ import {
     mutation as profileUpdateAction,
     type InputType as TProfileUpdateSchema,
     Schema as ProfileUpdateSchema
-} from '@/actions/user/profile-update';
+} from '@/actions/examples/forms';
+import toast from 'react-hot-toast';
 
 export const TestForm = () => {
     const form = useForm<TProfileUpdateSchema>({
         resolver: zodResolver(ProfileUpdateSchema),
         defaultValues: {
-            username: '',
-            email: ''
+            username: ''
         }
     });
 
@@ -28,9 +28,10 @@ export const TestForm = () => {
         {
             onSuccess: (data) => {
                 console.log(data);
+                toast.success('Update successful');
             },
             onError: (error) => {
-                console.log({ error });
+                toast.error('Update failed: ' + error.message);
             },
             onFieldError: (error) => {},
             resetOnSuccess: true
@@ -46,8 +47,7 @@ export const TestForm = () => {
         <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormInput form={form} name="username" label="Username" />
-                <FormInput form={form} name="email" label="Email" />
-                <FormSubmit title="Test" form={form} />
+                <FormSubmit form={form} />
             </form>
         </Form>
     );

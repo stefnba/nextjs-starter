@@ -21,11 +21,7 @@ const NavbarMenu = async () => {
 
     return (
         <div className="ml-auto flex items-center gap-x-5 pr-4">
-            <LuBell
-                cla
-                className="cursor-pointer hover:text-slate-600"
-                size={20}
-            />
+            <LuBell className="cursor-pointer hover:text-slate-600" size={20} />
             <DropdownMenu>
                 <DropdownMenuTrigger asChild>
                     <button className="b-0 relative h-10 w-10 rounded-full focus:outline-none">
@@ -51,11 +47,14 @@ const NavbarMenu = async () => {
                     </DropdownMenuLabel>
                     <DropdownMenuSeparator />
                     <DropdownMenuGroup>
-                        <DropdownMenuLinkItem href="/user">
+                        <DropdownMenuLinkItem href="/account">
+                            Account Settings
+                        </DropdownMenuLinkItem>
+                        <DropdownMenuLinkItem href="/account/profile">
                             Profile
                         </DropdownMenuLinkItem>
-                        <DropdownMenuLinkItem href="/user/settings">
-                            Settings
+                        <DropdownMenuLinkItem href="/account/security">
+                            Security
                         </DropdownMenuLinkItem>
                     </DropdownMenuGroup>
                     <DropdownMenuSeparator />

@@ -10,13 +10,8 @@ const routes = [
     },
     {
         icon: LuUser,
-        label: 'User',
-        href: '/user'
-    },
-    {
-        icon: LuSettings,
-        label: 'Settings',
-        href: '/user/settings'
+        label: 'Examples',
+        href: '/examples'
     }
 ];
 

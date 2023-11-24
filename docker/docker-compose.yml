@@ -21,5 +21,16 @@ services:
             - ./scripts:/docker-entrypoint-initdb.d/ # Run setup scripts
             - pg-data:/var/lib/postgresql/data/ # Make db data persist
 
+    app:
+        env_file:
+            - .env
+        environment:
+            - DATABASE_URL=postgresql://postgres:password@db:5432/${DB_NAME} # necessary to change since communication through container networks
+        depends_on:
+            - db
+        restart: always
+        ports:
+            - '${APP_PORT}:3000'
+
 volumes:
     pg-data:

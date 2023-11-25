@@ -18,7 +18,7 @@ services:
             - DB_APP_USER=${DB_APP_USER}
             - DB_APP_PASSWORD=${DB_APP_PASSWORD}
         volumes:
-            - ./scripts:/docker-entrypoint-initdb.d/ # Run setup scripts
+            - ./scripts/db:/docker-entrypoint-initdb.d/ # Run setup scripts
             - pg-data:/var/lib/postgresql/data/ # Make db data persist
 
     app:

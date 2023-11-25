@@ -3,7 +3,7 @@ import prisma from '@/db/client';
 
 import { ProfileUpdateForm } from './profile/_components/profile-form';
 import { Separator } from '@/components/ui/separator';
-import { LucideIcon, Lock, User2, Bell, Sun } from 'lucide-react';
+import { LucideIcon, Lock, User2, Bell, Sun, Settings } from 'lucide-react';
 
 import {
     Card,
@@ -49,6 +49,12 @@ const navItems: TNavItem[] = [
         href: 'account/apparance',
         description: 'Adjust your theme',
         avatar: Sun
+    },
+    {
+        title: 'Settings',
+        href: 'account/settings',
+        description: 'Set your default language and timezone',
+        avatar: Settings
     }
 ];
 
@@ -65,10 +71,10 @@ const SettingsPage = async () => {
         <>
             <PageHeader
                 title="Account"
-                subTitle="Manage your account settings"
+                subTitle="Manage your account & settings"
             />
 
-            <div className="grid grid-cols-2 gap-4 md:grid-cols-2">
+            <div className="grid grid-cols-2 gap-4 md:grid-cols-3">
                 {navItems.map(({ description, href, title, avatar }) => (
                     <NavCard key={href} href={href} className="">
                         <CardHeader>

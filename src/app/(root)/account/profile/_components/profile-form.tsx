@@ -52,7 +52,7 @@ export const ProfileUpdateForm = ({ data }: ProfileUpdateFormProps) => {
         <Form {...form}>
             <form
                 onSubmit={form.handleSubmit(onSubmit)}
-                className="w-full space-y-8"
+                className="w-96 space-y-8"
             >
                 <FormInput form={form} name="name" label="Name" />
                 <FormSubmit title="Update Profile" form={form} />

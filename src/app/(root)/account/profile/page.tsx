@@ -1,10 +1,18 @@
 import { PageHeader } from '@/components/page/header';
 import { ProfileUpdateForm } from './_components/profile-form';
+import prisma from '@/db/client';
+import { getSession } from '@/actions/auth/get-session';
 
 const ProfilePage = async () => {
-    const user = await prisma?.user.findUnique({
+    const auth = await getSession();
+
+    if (!auth?.user?.email) {
+        return;
+    }
+
+    const user = await prisma.user.findUnique({
         where: {
-            email: 'stefanjakob.bauer@gmail.com'
+            email: auth.user.email
         }
     });
 
@@ -22,7 +30,7 @@ const ProfilePage = async () => {
                         page: 'Profile'
                     }
                 ]}
-                subTitle="Manage your account settings"
+                subTitle="Provide personal details and how we can reach you"
             />
             <ProfileUpdateForm data={user} />
         </>

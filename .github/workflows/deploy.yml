@@ -3,7 +3,6 @@ name: deploy-production
 on:
     workflow_run:
         workflows: [one]
-        branches: [main]
         types:
             - completed
 jobs:

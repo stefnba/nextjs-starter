@@ -17,11 +17,6 @@ jobs:
               env:
                   SSH_HOST: ${{secrets.SSH_HOST}}
                   SSH_PRIVATE_KEY: ${{secrets.SSH_PRIVATE_KEY}}
-            - name: install rsync
-              run: |
-                  sudo apt update
-                  sudo apt upgrade -y
-                  apt-get install rsync
             - name: Copy Files to Server
               run: |
                   ${GITHUB_WORKSPACE}/scripts/deploy/copy.sh $SSH_USER $SSH_HOST $SSH_DIR

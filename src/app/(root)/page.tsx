@@ -7,24 +7,12 @@ interface HomeProps {
 }
 
 export default async function Home({ searchParams }: HomeProps) {
-    const pageSize = parseInt(searchParams['pageSize'] ?? '25');
-
-    // const entities = await prisma({ listingId: '2', pageSize });
-
-    // if (!(await getSession())) {
-    //     return (
-    //         <div>
-    //             Not loggined In <Link href="/login">Login</Link>
-    //         </div>
-    //     );
-    // }
-
     return (
         <>
-            <div className="text-xl">Examples</div>
+            <div className="text-xl">Page12</div>
 
             <p>
-                <Link href="/examples/form">Form</Link>
+                <Link href="/example/">s</Link>
             </p>
         </>
     );

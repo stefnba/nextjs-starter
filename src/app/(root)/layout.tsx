@@ -1,14 +1,16 @@
 import Navbar from './_components/navbar/Navbar';
 import Sidebar from './_components/sidebar/Sidebar';
 
-const Layout = async ({ children }: { children: React.ReactNode }) => {
+interface AccountLayoutProps {
+    children: React.ReactNode;
+}
+
+export default function AccountLayout({ children }: AccountLayoutProps) {
     return (
-        <div className="h-full">
+        <div className="flex h-full pt-[104px]">
             <Navbar />
             <Sidebar />
-            <main className="h-full p-6 pt-[104px] md:ml-56">{children}</main>
+            <main className="w-full px-6">{children}</main>
         </div>
     );
-};
-
-export default Layout;
+}

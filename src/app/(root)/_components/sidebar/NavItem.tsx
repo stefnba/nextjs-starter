@@ -4,6 +4,13 @@ import { usePathname } from 'next/navigation';
 import { IconType } from 'react-icons';
 import Link from 'next/link';
 import { cn } from '@/lib/utils';
+import { useSidebar } from '@/hooks/sidebar';
+import {
+    Tooltip,
+    TooltipContent,
+    TooltipProvider,
+    TooltipTrigger
+} from '@/components/ui/tooltip';
 
 interface SidebarNavItemProps {
     icon: IconType;
@@ -23,22 +30,39 @@ export const SidebarNavItem = ({
         pathname === href ||
         pathname?.startsWith(`${href}/`);
 
+    const { isOpen } = useSidebar();
+
     return (
         <Link
             href={href}
             className={cn(
-                ' mb-2 flex rounded-md pl-4 transition hover:bg-slate-300 hover:text-slate-600',
-                isActive &&
-                    'bg-red-200/20 text-red-500 hover:bg-red-200/20 hover:text-red-700',
-                true && ''
+                'flex rounded-md px-2 py-1 hover:bg-primary/40  hover:text-primary',
+                isActive && 'bg-primary/20 text-primary hover:bg-primary/30'
+                // 'bg-red-200/20 text-red-500 hover:bg-red-200/20 hover:text-red-700'
             )}
         >
-            <div className="flex items-center py-3 text-sm">
-                {Icon && <Icon size={20} className="" />}
+            <div
+                className={cn('flex items-center py-2', !isOpen && 'flex-col')}
+            >
+                {!isOpen ? (
+                    <TooltipProvider>
+                        <Tooltip>
+                            <TooltipTrigger>
+                                {Icon && <Icon className="h-6 w-6" />}
+                            </TooltipTrigger>
+                            <TooltipContent side="right" sideOffset={15}>
+                                <p>{label}</p>
+                            </TooltipContent>
+                        </Tooltip>
+                    </TooltipProvider>
+                ) : (
+                    <Icon className="h-6 w-6" />
+                )}
                 <div
                     className={cn(
-                        'font-[500]transition-all ml-3',
-                        false && 'hidden'
+                        'font-500 ml-6 w-32 text-sm',
+                        !isOpen && 'mx-0 mt-2 w-auto text-[10px]',
+                        !isOpen && true && 'hidden'
                     )}
                 >
                     {label}

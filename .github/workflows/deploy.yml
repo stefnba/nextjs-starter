@@ -1,5 +1,5 @@
 name: deploy-production
-run-name: Deploy to Production
+# run-name: Deploy to Production
 on:
     workflow_run:
         workflows: ['build-publish-image']

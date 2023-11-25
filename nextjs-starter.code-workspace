@@ -17,6 +17,9 @@
             "source.fixAll.eslint": true
         },
         "tailwindCSS.classAttributes": ["class", "className", "ngClass"],
-        "html.format.wrapAttributes": "aligned-multiple"
+        "html.format.wrapAttributes": "aligned-multiple",
+        "[markdown]": {
+            "editor.formatOnSave": false
+        }
     }
 }

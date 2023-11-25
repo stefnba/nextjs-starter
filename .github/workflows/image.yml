@@ -9,8 +9,7 @@ jobs:
         env:
             DOCKER_USER: ${{ secrets.DOCKER_USER }}
             DOCKER_TOKEN: ${{ secrets.DOCKER_TOKEN }}
-            # DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
-            DOCKER_IMAGE_NAME: ${{ github.event.repository.name }}
+            DOCKER_IMAGE_NAME: ${{ secrets.DOCKER_IMAGE_NAME }}
         steps:
             - uses: actions/checkout@v3
             - name: Build Docker image

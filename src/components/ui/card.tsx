@@ -12,7 +12,7 @@ const NavCard = React.forwardRef<
         <div
             ref={ref}
             className={cn(
-                'rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md hover:shadow-slate-300',
+                'rounded-lg border bg-card text-card-foreground shadow-sm hover:shadow-md hover:shadow-primary/10',
                 className
             )}
             {...props}
@@ -40,7 +40,7 @@ const CardIcon = React.forwardRef<
     HTMLDivElement,
     React.HTMLAttributes<HTMLDivElement> & { icon: LucideIcon }
 >(({ className, icon: Icon, ...props }, ref) => (
-    <Icon className="relative mb-6 h-6 w-6" />
+    <Icon className="relative mb-6 h-6 w-6 text-primary" />
 ));
 CardIcon.displayName = 'CardIcon';
 

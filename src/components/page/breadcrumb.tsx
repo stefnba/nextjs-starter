@@ -11,7 +11,8 @@ interface BreadcrumbProps {
 }
 
 export const Breadcrumbs = ({ breadcrumbs }: BreadcrumbProps) => {
-    if (!breadcrumbs) return <div className="mb-3 h-[20px]" />;
+    if (!breadcrumbs) return;
+    // <div className="mb-3 h-[20px]" />;
 
     return (
         <ol className="mb-3 flex items-center space-x-2 md:space-x-3">

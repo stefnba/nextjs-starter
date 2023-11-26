@@ -1,8 +1,7 @@
-name: deploy-production
-# run-name: Deploy to Production
+name: Deploy to Production
 on:
     workflow_run:
-        workflows: [one]
+        workflows: [Build and Publish Docker Image]
         types:
             - completed
 jobs:

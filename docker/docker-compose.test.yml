@@ -9,5 +9,5 @@ services:
         build:
             context: .
             dockerfile: docker/Dockerfile.prod
-        environment:
-            NEXTAUTH_URL: 'http://localhost:3002'
+        ports:
+            - '${APP_PORT}:3000'

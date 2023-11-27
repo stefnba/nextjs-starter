@@ -16,6 +16,8 @@ services:
             # node_modules workaround for volumes
             # https://stackoverflow.com/a/32785014
             - /app/node_modules
+        ports:
+            - '${APP_PORT}:3000'
         command: npm run dev
     db:
         ports:

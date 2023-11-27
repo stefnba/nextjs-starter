@@ -3,8 +3,6 @@ version: '3.8'
 services:
     db:
         image: postgres:14.5-alpine
-        ports:
-            - '${DB_PORT}:5432'
         restart: always
         env_file:
             - .env
@@ -26,11 +24,10 @@ services:
             - .env
         environment:
             - DATABASE_URL=postgresql://postgres:password@db:5432/${DB_NAME} # necessary to change since communication through container networks
+            - NEXTAUTH_URL=http://localhost:${APP_PORT}
         depends_on:
             - db
         restart: always
-        ports:
-            - '${APP_PORT}:3000'
 
 volumes:
     pg-data:

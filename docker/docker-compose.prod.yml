@@ -1,6 +1,5 @@
 ##
 # Base production configration
-# Set up networks to sit behind reverse proxy
 ##
 
 version: '3.8'
@@ -10,11 +9,9 @@ services:
         environment:
             - NODE_ENV=production
         networks:
-            # - reverse-proxy
             - default
     db:
         networks:
             - default
-# networks:
-# reverse-proxy:
-# external: true
+        ports:
+            - '127.0.0.1:${DB_PORT}:5432'
